@@ -1,9 +1,5 @@
 import reactDom from "react-dom";
+import App from "./App";
 
-function GerarBtn(){
-    return (<button>Clica em mim!</button>);
-}
 
-const element = document.querySelector(".root");
-
-reactDom.render(GerarBtn(),element);
+reactDom.render(<App />, document.querySelector(".root"));
