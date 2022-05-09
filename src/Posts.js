@@ -1,4 +1,20 @@
+import React from "react";
 function Post(props){
+    const [like, setLike] = React.useState("heart-outline");
+    
+    function likedIcon(){
+        if(like === "heart"){
+            setLike("heart-outline");
+        }else{
+            setLike("heart");
+        };
+    }
+    function liked(){
+        setLike("heart");  
+    };
+    
+    
+    
     return (
         <div class="post">
             <div class="topo">
@@ -12,13 +28,14 @@ function Post(props){
             </div>
 
             <div class="conteudo">
-                <img src={props.post} />
+                <img onClick={liked} src={props.post} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        {/* <ion-icon class="" name="heart"></ion-icon> */}
+                        <ion-icon onClick={likedIcon} name={like}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
@@ -39,6 +56,7 @@ function Post(props){
 };
 
 export default function Posts(){
+   
     const items =[
         {
             image:"assets/img/barked.svg",
